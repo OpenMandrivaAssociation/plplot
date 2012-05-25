@@ -58,6 +58,7 @@ BuildRequires:  gcc-gnat
 BuildRequires:  libgnat
 BuildRequires:  perl-PDL
 BuildRequires:  perl-XML-DOM
+BuildRequires:  chrpath
 
 BuildRequires:  libx11-devel
 BuildRequires:  libxext-devel
