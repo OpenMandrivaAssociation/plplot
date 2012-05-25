@@ -190,12 +190,12 @@ cd %{build_dir}
 %makeinstall_std
 
 rm -rf %{buildroot}/%{_datadir}/%{name}%{version}/examples/tk/tk01
-strip %{buildroot}/%{_libexecdir}/octave/site/oct/x86_64-mandriva-linux-gnu/plplot_octave.oct
+strip %{buildroot}/%{_libexecdir}/octave/site/oct/*/plplot_octave.oct
 chrpath -d %{buildroot}/%{_libdir}/*.so.*
 chrpath -d %{buildroot}/%{_libdir}/%{name}/plplotjavac_wrap.so
 chrpath -d %{buildroot}/%{_libdir}/%{name}%{version}/driversd/*.so
 chrpath -d %{buildroot}/%{_libdir}/lua/5.1/plplot/plplotluac.so
-chrpath -d %{buildroot}/%{_libexecdir}/octave/site/oct/x86_64-mandriva-linux-gnu/plplot_octave.oct
+chrpath -d %{buildroot}/%{_libexecdir}/octave/site/oct/*/plplot_octave.oct
 chrpath -d %{buildroot}/%{python_sitearch}/*.so
 chrpath -d %{buildroot}/%{_bindir}/*
 
