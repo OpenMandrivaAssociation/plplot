@@ -76,8 +76,9 @@ BuildRequires:  tk-devel
 BuildRequires:  tcl-devel
 BuildRequires:  agg-devel
 BuildRequires:  lua-devel
-BuildRequires:  quadmath-devel
-
+%if %{mdkversion} <= 2011
+    BuildRequires:  quadmath-devel
+%endif
 BuildRequires:  cairo-devel
 BuildRequires:  python-devel
 BuildRequires:  python-numpy-devel
