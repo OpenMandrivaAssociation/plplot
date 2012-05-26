@@ -76,7 +76,7 @@ BuildRequires:  tk-devel
 BuildRequires:  tcl-devel
 BuildRequires:  agg-devel
 BuildRequires:  lua-devel
-%if %{mdkversion} >= 2012
+%if %mdkversion >= 201200
 BuildRequires:  quadmath-devel
 %endif
 BuildRequires:  cairo-devel
@@ -217,7 +217,7 @@ chrpath -d %{buildroot}/%{_bindir}/*
 %{_libdir}/libqsastime.so.*
 %{_libdir}/libplplot*.so.*
 %{_libdir}/libtclmatrixd.so.*
-%if %{mdkversion} >= 2011
+%if %mdkversion >= 201100
 %dir %{libada_dir}
 %{libada_dir}/plplotadad
 %endif
@@ -237,14 +237,14 @@ chrpath -d %{buildroot}/%{_bindir}/*
 %{_libdir}/lua/%{lua_version}/plplot/plplotluac.so
 %{_libdir}/pkgconfig/plplotd*.pc
 #%exclude %{_libdir}/pkgconfig/plplotd-ocaml.pc
-%if %{mdkversion} >= 2011
+%if %mdkversion >= 201100
 %dir %{includeada_dir}
 %{includeada_dir}/plplotadad
 %endif
 %dir %{_datadir}/%{name}%{version}/examples
 %{_datadir}/%{name}%{version}/examples/CMakeLists.txt
 %{_datadir}/%{name}%{version}/examples/Makefile
-%if %{mdkversion} >= 2011
+%if %mdkversion >= 201100
 %{_datadir}/%{name}%{version}/examples/ada
 %{_datadir}/%{name}%{version}/examples/test_ada.sh
 %endif
