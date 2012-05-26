@@ -77,7 +77,7 @@ BuildRequires:  tcl-devel
 BuildRequires:  agg-devel
 BuildRequires:  lua-devel
 %if %{mdkversion} >= 2012
-    BuildRequires:  quadmath-devel
+BuildRequires:  quadmath-devel
 %endif
 BuildRequires:  cairo-devel
 BuildRequires:  python-devel
@@ -218,8 +218,8 @@ chrpath -d %{buildroot}/%{_bindir}/*
 %{_libdir}/libplplot*.so.*
 %{_libdir}/libtclmatrixd.so.*
 %if %{mdkversion} >= 2011
-    %dir %{libada_dir}
-    %{libada_dir}/plplotadad
+%dir %{libada_dir}
+%{libada_dir}/plplotadad
 %endif
 %dir %{_libdir}/%{name}%{version}
 %{_libdir}/%{name}%{version}/driversd
@@ -238,15 +238,15 @@ chrpath -d %{buildroot}/%{_bindir}/*
 %{_libdir}/pkgconfig/plplotd*.pc
 #%exclude %{_libdir}/pkgconfig/plplotd-ocaml.pc
 %if %{mdkversion} >= 2011
-    %dir %{includeada_dir}
-    %{includeada_dir}/plplotadad
+%dir %{includeada_dir}
+%{includeada_dir}/plplotadad
 %endif
 %dir %{_datadir}/%{name}%{version}/examples
 %{_datadir}/%{name}%{version}/examples/CMakeLists.txt
 %{_datadir}/%{name}%{version}/examples/Makefile
 %if %{mdkversion} >= 2011
-    %{_datadir}/%{name}%{version}/examples/ada
-    %{_datadir}/%{name}%{version}/examples/test_ada.sh
+%{_datadir}/%{name}%{version}/examples/ada
+%{_datadir}/%{name}%{version}/examples/test_ada.sh
 %endif
 %{_datadir}/%{name}%{version}/examples/c++
 %{_datadir}/%{name}%{version}/examples/c
