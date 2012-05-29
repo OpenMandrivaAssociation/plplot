@@ -40,7 +40,7 @@
 
 Name:           plplot
 Version:        5.9.9
-Release:        %mkrel 2
+Release:        %mkrel 3
 Summary:        A cross-platform software package for creating scientific plots
 License:        LGPLv2+
 Group:          Development/Other
@@ -205,18 +205,18 @@ chrpath -d %{buildroot}/%{_bindir}/*
 %doc Copyright COPYING.*
 %{_mandir}/man1/*
 %{_bindir}/pl*
-%dir %{_datadir}/%{name}%{version}
-%{_datadir}/%{name}%{version}/*.fnt
-%{_datadir}/%{name}%{version}/*.map
-%{_datadir}/%{name}%{version}/*.pal
-%{_datadir}/%{name}%{version}/*.tcl
-%{_datadir}/%{name}%{version}/tcl/
 
 %files -n %{libname}
 %{_libdir}/libcsiro*.so.*
 %{_libdir}/libqsastime.so.*
 %{_libdir}/libplplot*.so.*
 %{_libdir}/libtclmatrixd.so.*
+%dir %{_datadir}/%{name}%{version}
+%{_datadir}/%{name}%{version}/*.fnt
+%{_datadir}/%{name}%{version}/*.map
+%{_datadir}/%{name}%{version}/*.pal
+%{_datadir}/%{name}%{version}/*.tcl
+%{_datadir}/%{name}%{version}/tcl/
 %if %mdkversion >= 201100
 %dir %{libada_dir}
 %{libada_dir}/plplotadad
