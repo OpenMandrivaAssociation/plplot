@@ -40,7 +40,7 @@
 
 Name:           plplot
 Version:        5.9.9
-Release:        %mkrel 3
+Release:        4
 Summary:        A cross-platform software package for creating scientific plots
 License:        LGPLv2+
 Group:          Development/Other
@@ -48,6 +48,7 @@ Group:          Development/Other
 URL:            http://plplot.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/plplot/%{name}-%{version}.tar.gz
 Patch0:         plplot-5.9.9-gcc46.patch
+Patch1:		plplot-5.9.9.fpic.patch
 
 BuildRequires:  cmake
 BuildRequires:  pkgconfig
@@ -170,6 +171,7 @@ Provides:       %{name}-octave = %{version}-%{release}
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p1 -b .fpic
 
 %build
 %cmake  -DENABLE_itcl=%{enable_itcl} \
@@ -301,3 +303,19 @@ chrpath -d %{buildroot}/%{_bindir}/*
 %{_datadir}/%{name}%{version}/examples/octave/
 %{_datadir}/%{name}%{version}/examples/test_octave.sh
 %{_datadir}/%{name}%{version}/examples/test_octave_interactive.sh
+
+
+%changelog
+* Tue May 29 2012 Frank Kober <emuse@mandriva.org> 5.9.9-3mdv2012.0
++ Revision: 801140
+- moved some data files to lib package such that gnudl works without plplot main package
+- bump release
+- fixed mdkversion macro usage
+- ada support unavailable in 2010.1
+- try building /wo quadmath when backported
+
+* Fri May 25 2012 Frank Kober <emuse@mandriva.org> 5.9.9-1
++ Revision: 800576
+- add missing BR
+- imported package plplot
+
