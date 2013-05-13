@@ -40,7 +40,7 @@
 
 Name:           plplot
 Version:        5.9.9
-Release:        4
+Release:        5
 Summary:        A cross-platform software package for creating scientific plots
 License:        LGPLv2+
 Group:          Development/Other
