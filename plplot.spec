@@ -61,14 +61,14 @@ BuildRequires:  perl-PDL
 BuildRequires:  perl-XML-DOM
 BuildRequires:  chrpath
 
-BuildRequires:  libx11-devel
-BuildRequires:  libxext-devel
-BuildRequires:  libice-devel
-BuildRequires:  libsm-devel
+BuildRequires:  pkgconfig(x11)
+BuildRequires:  pkgconfig(xext)
+BuildRequires:  pkgconfig(ice)
+BuildRequires:  pkgconfig(sm)
 BuildRequires:  qhull-devel
 BuildRequires:  ncurses-devel
 BuildRequires:  libtool-devel
-BuildRequires:  libxcomposite-devel
+BuildRequires:  pkgconfig(xcomposite)
 BuildRequires:  qt4-devel
 BuildRequires:  wxgtku-devel
 
@@ -84,7 +84,7 @@ BuildRequires:  cairo-devel
 BuildRequires:  python-devel
 BuildRequires:  python-numpy-devel
 BuildRequires:  java-devel
-BuildRequires:  libgcj-devel
+BuildRequires:  pkgconfig(libgcj-4.7)
 BuildRequires:  ocaml
 BuildRequires:  ocaml-findlib
 BuildRequires:  ocaml-doc
