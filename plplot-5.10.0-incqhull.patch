@@ -1,0 +1,57 @@
+*** plplot-5.10.0/cmake/modules/FindQHULL.cmake.orig	2012-11-02 19:55:27.000000000 +0100
+--- plplot-5.10.0/cmake/modules/FindQHULL.cmake	2014-02-24 23:17:09.000000000 +0100
+***************
+*** 9,15 ****
+  
+  find_path(
+    QHULL_INCLUDE_DIR
+!     qhull/qhull_a.h
+    /usr/local/include
+    /usr/include
+  )
+--- 9,15 ----
+  
+  find_path(
+    QHULL_INCLUDE_DIR
+!     libqhull/qhull_a.h
+    /usr/local/include
+    /usr/include
+  )
+*** plplot-5.10.0/lib/nn/delaunay.c.orig	2011-10-28 15:17:07.000000000 +0200
+--- plplot-5.10.0/lib/nn/delaunay.c	2014-02-24 23:17:09.000000000 +0100
+***************
+*** 34,40 ****
+  #include <limits.h>
+  #include <float.h>
+  #ifdef USE_QHULL
+! #include <qhull/qhull_a.h>
+  #else
+  #include "triangle.h"
+  #endif
+--- 34,40 ----
+  #include <limits.h>
+  #include <float.h>
+  #ifdef USE_QHULL
+! #include <libqhull/qhull_a.h>
+  #else
+  #include "triangle.h"
+  #endif
+*** plplot-5.10.0/src/plgridd.c.orig	2011-10-17 23:16:39.000000000 +0200
+--- plplot-5.10.0/src/plgridd.c	2014-02-24 23:17:09.000000000 +0100
+***************
+*** 32,38 ****
+  
+  #ifdef PL_HAVE_QHULL
+  #include "../lib/nn/nn.h"
+! #include <qhull/qhull_a.h>
+  #endif
+  
+  // forward declarations
+--- 32,38 ----
+  
+  #ifdef PL_HAVE_QHULL
+  #include "../lib/nn/nn.h"
+! #include <libqhull/qhull_a.h>
+  #endif
+  
+  // forward declarations

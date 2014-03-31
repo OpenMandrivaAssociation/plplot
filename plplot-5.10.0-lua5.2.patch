@@ -1,0 +1,19 @@
+*** plplot-5.10.0/cmake/modules/lua.cmake.orig	2013-05-03 04:41:21.000000000 +0200
+--- plplot-5.10.0/cmake/modules/lua.cmake	2014-02-24 22:51:00.000000000 +0100
+***************
+*** 69,75 ****
+  endif(ENABLE_lua)
+  
+  if(ENABLE_lua)
+!   find_program(LUA_EXECUTABLE lua)
+    if(NOT LUA_EXECUTABLE)
+      message(STATUS "WARNING: "
+        "Lua executable not found. Disabling Lua bindings")
+--- 69,75 ----
+  endif(ENABLE_lua)
+  
+  if(ENABLE_lua)
+!   find_program(LUA_EXECUTABLE lua5.2)
+    if(NOT LUA_EXECUTABLE)
+      message(STATUS "WARNING: "
+        "Lua executable not found. Disabling Lua bindings")

@@ -1,0 +1,15 @@
+*** plplot-5.10.0/bindings/ada/CMakeLists.txt.orig	2014-01-22 10:03:05.000000000 +0100
+--- plplot-5.10.0/bindings/ada/CMakeLists.txt	2014-02-24 22:51:00.000000000 +0100
+***************
+*** 20,25 ****
+--- 20,29 ----
+  
+  if(ENABLE_ada)
+  
++ IF(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
++ 	ADD_DEFINITIONS(-fPIC)
++ ENDIF(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
++ 
+    set(SOURCE_LIST
+      plplot.adb
+      plplot.ads

@@ -1,0 +1,102 @@
+*** plplot-5.10.0/drivers/cairo.c.orig	2013-12-09 14:20:01.000000000 +0100
+--- plplot-5.10.0/drivers/cairo.c	2014-02-24 22:51:00.000000000 +0100
+***************
+*** 653,659 ****
+      aStream->level             = 0;
+      aStream->pangoMarkupString = (char *) malloc( sizeof ( char ) * MAX_MARKUP_LEN );
+      // Calculate the font size (in points since DPI = 72).
+!     aStream->fontSize = (float) ( pls->chrht * DPI / 25.4 );
+      for ( i = 0; i < MAX_MARKUP_LEN; i++ )
+      {
+          aStream->pangoMarkupString[i] = 0;
+--- 653,659 ----
+      aStream->level             = 0;
+      aStream->pangoMarkupString = (char *) malloc( sizeof ( char ) * MAX_MARKUP_LEN );
+      // Calculate the font size (in points since DPI = 72).
+!     aStream->fontSize = (float) ( pls->chrht * pls->ydpi / 25.4 );
+      for ( i = 0; i < MAX_MARKUP_LEN; i++ )
+      {
+          aStream->pangoMarkupString[i] = 0;
+***************
+*** 798,804 ****
+      // If asked, set the string length (in mm) and return
+      if ( pls->get_string_length )
+      {
+!         pls->string_length = (PLFLT) textXExtent * 25.4 / DPI;
+      }
+      else
+      {
+--- 798,804 ----
+      // If asked, set the string length (in mm) and return
+      if ( pls->get_string_length )
+      {
+!         pls->string_length = (PLFLT) textXExtent * 25.4 / pls->xdpi;
+      }
+      else
+      {
+***************
+*** 901,907 ****
+      }
+  
+      // Calculate the font size (in points since DPI = 72).
+!     fontSize = (float) ( pls->chrht * DPI / 25.4 );
+  
+      // Convert the escape characters into the appropriate Pango markup
+      textWithPangoMarkup = ucs4_to_pango_markup_format( args->unicode_array, args->unicode_array_len, fontSize );
+--- 901,907 ----
+      }
+  
+      // Calculate the font size (in points since DPI = 72).
+!     fontSize = (float) ( pls->chrht * pls->ydpi / 25.4 );
+  
+      // Convert the escape characters into the appropriate Pango markup
+      textWithPangoMarkup = ucs4_to_pango_markup_format( args->unicode_array, args->unicode_array_len, fontSize );
+***************
+*** 915,921 ****
+      // If asked, set the string length (in mm) and return
+      if ( pls->get_string_length )
+      {
+!         pls->string_length = (PLFLT) textXExtent * 25.4 / DPI;
+          return;
+      }
+  
+--- 915,921 ----
+      // If asked, set the string length (in mm) and return
+      if ( pls->get_string_length )
+      {
+!         pls->string_length = (PLFLT) textXExtent * 25.4 / pls->xdpi;
+          return;
+      }
+  
+***************
+*** 1310,1315 ****
+--- 1310,1320 ----
+      pls->has_string_length = 1;           // Driver supports string length calculations
+      pls->dev_modeset       = 1;           // Driver supports drawing mode setting
+  
++     if ( pls->xdpi <= 0 || pls->ydpi <= 0) 
++       {
++ 	pls->xdpi = DPI;
++ 	pls->ydpi = DPI;
++       }
+      if ( pls->xlength <= 0 || pls->ylength <= 0 )
+      {
+          pls->xlength = PLCAIRO_DEFAULT_X;
+***************
+*** 1322,1328 ****
+      else
+          downscale = (double) pls->ylength / (double) PIXELS_Y;
+      plP_setphy( (PLINT) 0, (PLINT) ( pls->xlength / downscale ), (PLINT) 0, (PLINT) ( pls->ylength / downscale ) );
+!     plP_setpxl( DPI / 25.4 / downscale, DPI / 25.4 / downscale );
+  
+      // Initialize font table with either enviroment variables or defaults.
+      // This was copied from the psttf driver.
+--- 1327,1334 ----
+      else
+          downscale = (double) pls->ylength / (double) PIXELS_Y;
+      plP_setphy( (PLINT) 0, (PLINT) ( pls->xlength / downscale ), (PLINT) 0, (PLINT) ( pls->ylength / downscale ) );
+!     plP_setpxl(  pls->xdpi / 25.4 / downscale, 
+! 		 pls->ydpi / 25.4 / downscale );
+  
+      // Initialize font table with either enviroment variables or defaults.
+      // This was copied from the psttf driver.
