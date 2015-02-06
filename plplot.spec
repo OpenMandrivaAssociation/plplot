@@ -87,7 +87,7 @@
 Summary:	A cross-platform software package for creating scientific plots
 Name:		plplot
 Version:	5.10.0
-Release:	17
+Release:	18
 License:	LGPLv2+
 Group:		Development/Other
 Url:		http://plplot.sourceforge.net/
