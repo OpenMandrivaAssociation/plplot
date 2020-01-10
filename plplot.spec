@@ -497,7 +497,7 @@ Conflicts:	%{_lib}plplot-devel < 5.10.0-5
 
 %prep
 %setup -qn %{name}-%{srcversion}
-%apply_patches
+%autopatch -p1
 
 %build
 %cmake \
