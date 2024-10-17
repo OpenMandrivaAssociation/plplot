@@ -90,7 +90,7 @@ Version:	5.10.0
 Release:	18
 License:	LGPLv2+
 Group:		Development/Other
-Url:		http://plplot.sourceforge.net/
+Url:		https://plplot.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/plplot/%{name}-%{version}.tar.gz
 Patch1:		plplot-5.10.0-lua5.2.patch
 Patch2:		plplot-5.10.0-build-fpic.patch
